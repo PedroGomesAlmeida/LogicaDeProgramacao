@@ -1,0 +1,146 @@
+funcao inicio()
+{
+    inteiro vidaHeroi
+    inteiro vidaDragao
+    inteiro pocao
+    inteiro bomba
+    inteiro escudo
+    inteiro flecha
+
+    inteiro opcao
+    inteiro item
+    inteiro defesa
+
+    vidaHeroi = 100
+    vidaDragao = 100
+
+    pocao = 2
+    bomba = 1
+    escudo = 2
+    flecha = 3
+
+    defesa = 0
+
+    enquanto (vidaHeroi > 0 e vidaDragao > 0)
+    {
+
+   escreva("\n\n1 - Atacar")
+   escreva("\n2 - Defender")
+   escreva("\n3 - Usar Item")
+   escreva("\nEscolha: ")
+   leia(escolha)
+
+   se (escolha = 1) entao
+
+      se (energia >= 20) entao
+         escreva("\nVocê atacou o monstro!")
+         vidaMonstro <- vidaMonstro - 25
+         energia <- energia - 20
+      senao
+         escreva("\nEnergia insuficiente!")
+      fimse
+
+   senao
+
+      se (escolha = 2) entao
+         escreva("\nVocê se defendeu.")
+         energia <- energia + 10
+         vidaJogador <- vidaJogador + 5
+
+         se (vidaJogador > 100) entao
+            vidaJogador <- 100
+         fimse
+
+      senao
+
+         se (escolha = 3) entao
+
+            escreva("\n\nItens:")
+            escreva("\n1 - Poção de Cura (", pocao, ")")
+            escreva("\n2 - Bomba (", bomba, ")")
+            escreva("\n3 - Escudo (", escudo, ")")
+            escreva("\n4 - Comida (", comida, ")")
+            escreva("\nEscolha o item: ")
+            leia(item)
+
+            se (item = 1) entao
+               se (pocao > 0) entao
+                  vidaJogador <- vidaJogador + 30
+                  se (vidaJogador > 100) entao
+                     vidaJogador <- 100
+                  fimse
+                  pocao <- pocao - 1
+                  escreva("\nVocê usou uma Poção.")
+               senao
+                  escreva("\nPoção esgotada!")
+               fimse
+
+            senao
+
+               se (item = 2) entao
+                  se (bomba > 0) entao
+                     vidaMonstro <- vidaMonstro - 40
+                     bomba <- bomba - 1
+                     escreva("\nBomba lançada!")
+                  senao
+                     escreva("\nBombas esgotadas!")
+                  fimse
+
+               senao
+
+                  se (item = 3) entao
+                     se (escudo > 0) entao
+                        escudo <- escudo - 1
+                        escreva("\nEscudo ativado! O ataque do monstro foi bloqueado.")
+                        continue
+                     senao
+                        escreva("\nEscudos esgotados!")
+                     fimse
+                  senao
+            se (item = 4) entao
+            se (comida > 0) entao
+            energia <- energia + 30
+            se (energia > 100) entao
+            energia <- 100
+            fimse
+            comida <- comida - 1
+            escreva("\nVocê recuperou energia.")
+            senao
+            escreva("\nComida esgotada!")
+           fimse
+         senao
+            escreva("\nOpção inválida!")
+         fimse
+
+
+   se (vidaMonstro > 0) entao
+      escreva("\nO monstro atacou!")
+      vidaJogador <- vidaJogador - 15
+   fimse
+
+fimenquanto
+
+se (vidaMonstro <= 0) entao
+   escreva("\n\n==========================")
+   escreva("\nVOCÊ VENCEU!")
+   escreva("\nO monstro foi derrotado e você escapou da ilha!")
+   escreva("\n==========================")
+senao
+   escreva("\n\n==========================")
+   escreva("\nGAME OVER!")
+   escreva("\nVocê foi derrotado pelo monstro.")
+   escreva("\n==========================")
+fimse
+
+fimalgoritmo
+/* $$$ Portugol Studio $$$ 
+ * 
+ * Esta seção do arquivo guarda informações do Portugol Studio.
+ * Você pode apagá-la se estiver utilizando outro editor.
+ * 
+ * @POSICAO-CURSOR = 80; 
+ * @PONTOS-DE-PARADA = ;
+ * @SIMBOLOS-INSPECIONADOS = ;
+ * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
+ * @FILTRO-ARVORE-TIPOS-DE-SIMBOLO = variavel, vetor, matriz, funcao;
+ */
