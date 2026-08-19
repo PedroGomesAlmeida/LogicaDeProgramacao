@@ -1,0 +1,31 @@
+algoritmo "Exercicio5"
+
+var
+   notas: vetor[1..3, 1..4] de real
+   medias: vetor[1..3] de real
+   aluno, bimestre: inteiro
+   soma: real
+
+inicio
+   para aluno de 1 ate 3 faca
+      soma <- 0
+
+      para bimestre de 1 ate 4 faca
+         escreva("Digite a nota do aluno ", aluno, 
+                 " no ", bimestre, "º bimestre: ")
+         leia(notas[aluno,bimestre])
+
+         soma <- soma + notas[aluno,bimestre]
+      fimpara
+
+      medias[aluno] <- soma / 4
+   fimpara
+
+   escreval("")
+   escreval("Médias finais:")
+
+   para aluno de 1 ate 3 faca
+      escreval("Aluno ", aluno, ": ", medias[aluno]:5:2)
+   fimpara
+
+fimalgoritmo
