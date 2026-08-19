@@ -1,0 +1,35 @@
+algoritmo "Exercicio2"
+
+var
+   vetor: vetor[1..10] de inteiro
+   i, maior, menor: inteiro
+
+inicio
+   vetor[1] <- 25
+   vetor[2] <- 8
+   vetor[3] <- 42
+   vetor[4] <- 17
+   vetor[5] <- 3
+   vetor[6] <- 91
+   vetor[7] <- 56
+   vetor[8] <- 12
+   vetor[9] <- 34
+   vetor[10] <- 67
+
+   maior <- vetor[1]
+   menor <- vetor[1]
+
+   para i de 2 ate 10 faca
+      se vetor[i] > maior entao
+         maior <- vetor[i]
+      fimse
+
+      se vetor[i] < menor entao
+         menor <- vetor[i]
+      fimse
+   fimpara
+
+   escreval("Maior valor: ", maior)
+   escreval("Menor valor: ", menor)
+
+fimalgoritmo
